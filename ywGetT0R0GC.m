@@ -1,0 +1,26 @@
+function [T0,R0]=ywGetT0R0GC(Mag)
+    R0=10^(0.48*Mag-1.57);
+    if(Mag<3.5)
+        T0=11.5;
+    elseif(Mag<4.0)
+        T0=22;
+    elseif(Mag<4.5)
+        T0=42;
+    elseif(Mag<5)
+        T0=83;
+    elseif(Mag<5.5)
+        T0=155;
+    elseif(Mag<6.0)
+        T0=290;
+    elseif(Mag<6.5)
+        T0=510;
+    elseif(Mag<7.0)
+        T0=790;
+    elseif(Mag<7.5)
+        T0=915;
+    elseif(Mag<8.0)
+        T0=960;
+    else%CS法对于8.5级以上地震没有定义，采用同8.0的参数补充
+        T0=985;
+    end
+end

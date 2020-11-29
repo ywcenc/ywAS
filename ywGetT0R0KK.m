@@ -1,0 +1,26 @@
+function [R0,T0]=ywGetT0R0KK(Mag)
+    if(Mag<2.5)
+        R0=30;T0=6;
+    elseif(Mag<3.5)
+        R0=30;T0=12;
+    elseif(Mag<4.0)
+        R0=40;T0=23;
+    elseif(Mag<4.5)
+        R0=40;T0=46;
+    elseif(Mag<5)
+        R0=40;T0=92;
+    elseif(Mag<5.5)
+        R0=50;T0=183;
+    elseif(Mag<6.5)
+        R0=50;T0=365;
+    elseif(Mag<7)
+        R0=100;T0=548;
+    elseif(Mag<7.5)
+        R0=100;T0=730;
+    elseif(Mag<8)
+        R0=150;T0=913;
+    else%KK法对于8级以上地震没有定义，采用C-S法补充
+        R0=10^(0.41*Mag-1.25);
+        T0=985;
+    end
+end

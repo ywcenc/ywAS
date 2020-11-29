@@ -1,0 +1,9 @@
+function[ywDst]=ywGetDst(ywEqDT,ywEqLongi,ywEqLati,C,link1,link2)
+    for(i=1:length(link1))
+        dis=distance(ywEqLati(link1(i)),ywEqLongi(link1(i)),ywEqLati(link2(i)),ywEqLongi(link2(i)));
+        dis=dis*pi/180*6371.828;%km        
+        dt=ywEqDT(link1(i))-ywEqDT(link2(i));%day
+        dst=sqrt(dis.*dis+C^2*dt.*dt);
+        ywDst(i)=dst;
+    end    
+end
